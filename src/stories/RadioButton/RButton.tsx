@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import { RadioButtonProps } from './RButton.types';
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import { RadioButtonProps } from "./RButton.types";
 
 const Label = styled.label<{ disabled?: boolean }>`
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   display: flex;
   align-items: center;
   gap: 8px;
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
 
-const HiddenRadio = styled.input.attrs({ type: 'radio' })`
+const HiddenRadio = styled.input.attrs({ type: "radio" })`
   opacity: 0;
   position: absolute;
 `;
@@ -20,7 +20,7 @@ const radioVisualStyles = css<{ checked: boolean }>`
   height: 20px;
   border: 2px solid #007bff;
   border-radius: 50%;
-  background-color: ${({ checked }) => (checked ? '#007bff' : 'transparent')};
+  background-color: ${({ checked }) => (checked ? "#007bff" : "transparent")};
   transition: all 0.2s;
 `;
 
@@ -34,7 +34,7 @@ const RadioVisual = styled.div<{ checked: boolean }>`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: ${({ checked }) => (checked ? 'block' : 'none')};
+    display: ${({ checked }) => (checked ? "block" : "none")};
     width: 10px;
     height: 10px;
     border-radius: 50%;

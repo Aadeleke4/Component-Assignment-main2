@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { DropdownProps } from './Dropdown.types';
-
+import React, { useState } from "react";
+import styled from "styled-components";
+import { DropdownProps } from "./Dropdown.types";
 
 const DropdownContainer = styled.div`
   position: relative;
@@ -16,14 +15,14 @@ const DropdownList = styled.ul`
   border: 1px solid #000;
   background-color: black;
   color: white;
-  width: 150px; 
+  width: 150px;
 `;
 
 const DropdownListItem = styled.li`
   padding: 8px;
   cursor: pointer;
   &:hover {
-    background-color: #2493FA;
+    background-color: #2493fa;
     color: white;
   }
 `;
@@ -37,17 +36,16 @@ const DropdownButton = styled.button<{ disabled: boolean }>`
   padding: 8px;
   border: 1px solid #000;
   cursor: pointer;
-  background-color: ${props => props.disabled ? '#C1C1C1' : 'black'};
+  background-color: ${(props) => (props.disabled ? "#C1C1C1" : "black")};
   width: 150px;
-  color: ${props => props.disabled ? '#A8A8A8' : 'white'};
-  
+  color: ${(props) => (props.disabled ? "#A8A8A8" : "white")};
+
   &:hover {
-    background-color: ${props => props.disabled ? '#C1C1C1' : '#ffffff'};
-    color: ${props => props.disabled ? '#A8A8A8' : 'white'};
-    cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+    background-color: ${(props) => (props.disabled ? "#C1C1C1" : "#ffffff")};
+    color: ${(props) => (props.disabled ? "#A8A8A8" : "white")};
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   }
 `;
-
 
 export const Dropdown: React.FC<DropdownProps> = ({
   options,
@@ -60,7 +58,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const handleSelection = (option: string) => {
     onSelect?.(option);
-    setIsOpen(false); 
+    setIsOpen(false);
   };
 
   return (
@@ -69,7 +67,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <DropdownButton
         onClick={() => setIsOpen(!isOpen)}
         disabled={disabled}
-        style={{ backgroundColor: backgroundColor || 'black' }}
+        style={{ backgroundColor: backgroundColor || "black" }}
       >
         Select
       </DropdownButton>

@@ -20,6 +20,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/stories/Button/Button.stories.ts", "src/stories/Button/Button.tsx", "src/stories/Button/Button.types.ts"],
+  "include": [
+    "src",
+    "src/stories/Button/Button.stories.ts",
+    "src/stories/Button/Button.tsx",
+    "src/stories/Button/Button.types.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

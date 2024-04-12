@@ -1,7 +1,6 @@
 export interface LabelProps {
   label: string;
-  variants: 'default' | 'disabled' | 'error';
+  variants: "default" | "disabled" | "error";
   errorMessage?: string;
   disabled?: boolean;
-
 }

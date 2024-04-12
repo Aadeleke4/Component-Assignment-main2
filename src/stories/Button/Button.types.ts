@@ -1,5 +1,5 @@
 export interface ButtonProps {
-  variant?: 'dark' | 'light';
+  variant?: "dark" | "light";
   label?: string;
   backgroundColor?: string;
   disabled?: boolean;

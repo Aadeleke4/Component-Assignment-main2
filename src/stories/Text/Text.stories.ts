@@ -1,58 +1,55 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { Text } from './Text';
-import { TextProps} from './Text.types';
+import { Meta, StoryObj } from "@storybook/react";
+import { Text } from "./Text";
+import { TextProps } from "./Text.types";
 
 export default {
-  title: 'Components/Text',
+  title: "Components/Text",
   component: Text,
-  tags:['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: { type: 'select', options: ['normal', 'bold', 'light'] },
+      control: { type: "select", options: ["normal", "bold", "light"] },
     },
-    content: { control: 'text' },
+    content: { control: "text" },
     fontSize: {
-      control: { type: 'select', options: ['small', 'medium', 'large'] },
+      control: { type: "select", options: ["small", "medium", "large"] },
     },
-    disabled: { control: 'boolean' },
+    disabled: { control: "boolean" },
   },
 } as Meta;
 
-
 export const Normal: StoryObj<TextProps> = {
   args: {
-    content: 'Normal Text',
-    variant: 'normal',
+    content: "Normal Text",
+    variant: "normal",
   },
 };
 
 export const Bold: StoryObj<TextProps> = {
-  args:{
-    content: 'Normal Text',
-    variant: 'bold'
-  }
-}
-
-export const light: StoryObj<TextProps> = {
-  args:{
-    content: 'Normal Text',
-    variant: 'light'
-  }
-}
-
-export const header: StoryObj<TextProps> = {
-  args:{
-    content: 'Normal Text',
-    variant: 'bold',
-    fontSize: 'large'
-  }
-}
-
-export const Disabled: StoryObj<TextProps> = {
   args: {
-    content: 'Disabled Text',
-    disabled: true,
+    content: "Normal Text",
+    variant: "bold",
   },
 };
 
+export const Light: StoryObj<TextProps> = {
+  args: {
+    content: "Normal Text",
+    variant: "light",
+  },
+};
 
+export const Header: StoryObj<TextProps> = {
+  args: {
+    content: "Normal Text",
+    variant: "bold",
+    fontSize: "large",
+  },
+};
+
+export const Disabled: StoryObj<TextProps> = {
+  args: {
+    content: "Disabled Text",
+    disabled: true,
+  },
+};

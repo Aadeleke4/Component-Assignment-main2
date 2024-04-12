@@ -1,6 +1,5 @@
-export interface ImageProps  {
+export interface ImageProps {
   src: string;
   backgroundColor?: string;
   disabled?: boolean;
-
-};
+}
