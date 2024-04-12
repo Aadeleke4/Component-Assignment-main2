@@ -1,4 +1,5 @@
 // ContactForm.tsx
+import React from 'react';
 import { useState } from "react";
 import { ContactFormProps } from "./ContactForm.types";
 

@@ -1,5 +1,6 @@
-import { render, fireEvent, screen } from "@testing-library/react";
-import ContactForm from "./ContactForm";
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import ContactForm from './ContactForm';
 
 describe("ContactForm", () => {
   it("should submit form with email and phone", () => {
@@ -12,7 +13,7 @@ describe("ContactForm", () => {
     fireEvent.change(screen.getByLabelText(/phone/i), {
       target: { value: "1234567890" },
     });
-    fireEvent.submit(screen.getByRole("button"));
+    fireEvent.submit(screen.getByRole('button'));
 
     expect(handleSubmit).toHaveBeenCalledWith({
       email: "test@example.com",
