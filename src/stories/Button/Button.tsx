@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { ButtonProps } from './Button.types';
 
 
-var StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<ButtonProps>`
   border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
