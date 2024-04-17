@@ -8,7 +8,8 @@ const CardContainer = styled.div<CardProps>`
   border: 1px solid #000;
   position: relative;
   overflow: hidden;
-  background-image: ${(props) => props.defaultImage ? `url(${props.defaultImage})` : 'none'};
+  background-image: ${(props) =>
+    props.defaultImage ? `url(${props.defaultImage})` : "none"};
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,7 +19,6 @@ const CardContainer = styled.div<CardProps>`
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
   filter: ${(props) => (props.disabled ? "grayscale(100%)" : "none")};
 `;
-
 
 const CardText = styled.div<{ backgroundColor?: string }>`
   position: absolute;

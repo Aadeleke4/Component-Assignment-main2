@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
 import RadioButton from "./RButton";
-import "@testing-library/jest-dom"; 
+import "@testing-library/jest-dom";
 
 describe("RadioButton", () => {
   it("renders correctly", () => {
