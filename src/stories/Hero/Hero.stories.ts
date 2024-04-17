@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Hero } from "./Hero";
 import { HeroProps } from "./Hero.types";
-import HeroImg from "./background2.png";
+import HeroImg from "./background2.jpeg";
 
 export default {
   title: "Components/Hero",

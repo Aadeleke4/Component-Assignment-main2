@@ -5,4 +5,7 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testEnvironment: 'jest-environment-jsdom',
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '/fileMock.js'
+  },
 };

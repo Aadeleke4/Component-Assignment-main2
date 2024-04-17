@@ -1,5 +1,3 @@
-// basic.test.js
-
 describe('Basic Test', () => {
     it('should pass this simple test', () => {
       const sum = 1 + 2;
