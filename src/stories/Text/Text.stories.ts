@@ -35,9 +35,9 @@ export const Bold: StoryObj<TextProps> = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("Bold Text")).toHaveStyle({
-      fontWeight: 'bold'
+      fontWeight: "bold",
     });
-  }
+  },
 };
 
 export const Light: StoryObj<TextProps> = {
@@ -48,9 +48,9 @@ export const Light: StoryObj<TextProps> = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("Light Text")).toHaveStyle({
-      fontStyle: 'italic'
+      fontStyle: "italic",
     });
-  }
+  },
 };
 
 export const Header: StoryObj<TextProps> = {
@@ -62,9 +62,9 @@ export const Header: StoryObj<TextProps> = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("Header Text")).toHaveStyle({
-      fontSize: '24px'
+      fontSize: "24px",
     });
-  }
+  },
 };
 
 export const Disabled: StoryObj<TextProps> = {
@@ -79,5 +79,5 @@ export const Disabled: StoryObj<TextProps> = {
     await expect(textElement).toHaveStyle("opacity: 0.5");
     await expect(textElement).toHaveStyle("pointer-events: none");
     await expect(textElement).toHaveStyle("user-select: none");
-  }
+  },
 };

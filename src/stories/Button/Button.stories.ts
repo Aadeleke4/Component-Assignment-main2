@@ -25,10 +25,10 @@ export const Primary: StoryObj<ButtonProps> = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const button = canvas.getByRole('button', { name: "Button" });
+    const button = canvas.getByRole("button", { name: "Button" });
     await userEvent.click(button);
     await expect(button).not.toBeDisabled();
-  }
+  },
 };
 
 export const Secondary: StoryObj<ButtonProps> = {
@@ -38,10 +38,10 @@ export const Secondary: StoryObj<ButtonProps> = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const button = canvas.getByRole('button', { name: "Button" });
+    const button = canvas.getByRole("button", { name: "Button" });
     await userEvent.click(button);
     await expect(button).not.toBeDisabled();
-  }
+  },
 };
 
 export const Disabled: StoryObj<ButtonProps> = {
@@ -52,8 +52,8 @@ export const Disabled: StoryObj<ButtonProps> = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const button = canvas.getByRole('button', { name: "Button" });
+    const button = canvas.getByRole("button", { name: "Button" });
     await userEvent.click(button); // This click should have no effect because the button is disabled
     await expect(button).toBeDisabled();
-  }
+  },
 };

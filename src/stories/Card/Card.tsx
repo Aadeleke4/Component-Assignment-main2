@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 // Define props for styled components to avoid TypeScript errors
 type CardContainerProps = {
@@ -13,7 +13,8 @@ const CardContainer = styled.div<CardContainerProps>`
   border: 1px solid #000;
   position: relative;
   overflow: hidden;
-  background-image: ${(props) => props.defaultImage ? `url(${props.defaultImage})` : "none"};
+  background-image: ${(props) =>
+    props.defaultImage ? `url(${props.defaultImage})` : "none"};
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,7 +61,7 @@ const Card: React.FC<CardProps> = ({
   <CardContainer
     defaultImage={defaultImage}
     disabled={disabled}
-    data-testid="card-container"  // Make sure this is included
+    data-testid="card-container" // Make sure this is included
   >
     <CardText
       backgroundColor={backgroundColor}
