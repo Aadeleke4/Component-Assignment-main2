@@ -1,15 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { CardProps } from "./Card.types";
+import React from 'react';
+import styled from 'styled-components';
 
-const CardContainer = styled.div<CardProps>`
+// Define props for styled components to avoid TypeScript errors
+type CardContainerProps = {
+  defaultImage?: string;
+  disabled: boolean;
+};
+
+const CardContainer = styled.div<CardContainerProps>`
   width: 200px;
   height: 300px;
   border: 1px solid #000;
   position: relative;
   overflow: hidden;
-  background-image: ${(props) =>
-    props.defaultImage ? `url(${props.defaultImage})` : "none"};
+  background-image: ${(props) => props.defaultImage ? `url(${props.defaultImage})` : "none"};
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -20,7 +24,12 @@ const CardContainer = styled.div<CardProps>`
   filter: ${(props) => (props.disabled ? "grayscale(100%)" : "none")};
 `;
 
-const CardText = styled.div<{ backgroundColor?: string }>`
+type CardTextProps = {
+  backgroundColor?: string;
+  isVisible: boolean;
+};
+
+const CardText = styled.div<CardTextProps>`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -30,13 +39,17 @@ const CardText = styled.div<{ backgroundColor?: string }>`
   background-color: ${(props) => props.backgroundColor || "black"};
   color: white;
   text-align: center;
-  opacity: 0;
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transition: opacity 0.3s ease-in-out;
-
-  ${CardContainer}:hover & {
-    opacity: 1;
-  }
 `;
+
+// Define the component props type explicitly
+type CardProps = {
+  defaultImage?: string;
+  backgroundColor?: string;
+  text?: string;
+  disabled?: boolean;
+};
 
 const Card: React.FC<CardProps> = ({
   defaultImage,
@@ -44,8 +57,18 @@ const Card: React.FC<CardProps> = ({
   text = "Lorem Ipsum",
   disabled = false,
 }) => (
-  <CardContainer defaultImage={defaultImage} disabled={disabled}>
-    <CardText backgroundColor={backgroundColor}>{text}</CardText>
+  <CardContainer
+    defaultImage={defaultImage}
+    disabled={disabled}
+    data-testid="card-container"  // Make sure this is included
+  >
+    <CardText
+      backgroundColor={backgroundColor}
+      isVisible={!disabled}
+      data-testid="card-text"
+    >
+      {text}
+    </CardText>
   </CardContainer>
 );
 

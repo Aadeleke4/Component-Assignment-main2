@@ -20,6 +20,7 @@ const StyledInput = styled.input<{ isError: boolean; disabled: boolean }>`
   background: ${(props) => (props.disabled ? "#F5F5F5" : "white")};
   color: ${(props) => (props.disabled ? "#A8A8A8" : "black")};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "auto")};
+  aria-disabled={disabled ? "true" : "false"} // Adding this line
 `;
 
 const ErrorMessage = styled.span`

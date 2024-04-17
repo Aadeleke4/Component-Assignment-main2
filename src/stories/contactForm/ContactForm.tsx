@@ -1,15 +1,17 @@
-// ContactForm.tsx
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ContactFormProps } from "./ContactForm.types";
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  // Determine if the submit button should be disabled
+  const isSubmitDisabled = email === "" || phone === "";
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    onSubmit({ email, phone });
+    if (!isSubmitDisabled) {
+      onSubmit({ email, phone });
+    }
   };
 
   return (
@@ -30,7 +32,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           onChange={(e) => setPhone(e.target.value)}
         />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={isSubmitDisabled}>
+        Submit
+      </button>
     </form>
   );
 };
