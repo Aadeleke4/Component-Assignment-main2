@@ -20,7 +20,7 @@ const StyledImage = styled.img<{ disabled?: boolean }>`
 
 export const Hero: React.FC<HeroProps> = ({ src, disabled = false }) => {
   return (
-    <StyledHero backgroundColor="#fff" disabled={disabled}>
+    <StyledHero backgroundColor="#ffffff" disabled={disabled}>
       <StyledImage src={src} disabled={disabled} />
     </StyledHero>
   );
