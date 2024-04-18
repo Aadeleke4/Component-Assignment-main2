@@ -42,6 +42,6 @@ export const Disabled: StoryObj<typeof Card> = {
 
     // Instead of trying to click, check if the element has the correct styles
     await expect(card).toHaveStyle("pointer-events: none"); // Confirm no pointer events
-    await expect(card).toHaveStyle("filter: grayscale(100%)"); // Confirm grayscale filter
+    await expect(card).toHaveStyle("filter: grayscale(1)"); // Confirm grayscale filter
   },
 };

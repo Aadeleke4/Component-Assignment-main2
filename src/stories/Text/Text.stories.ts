@@ -32,11 +32,11 @@ export const Bold: StoryObj<TextProps> = {
     content: "Bold Text",
     variant: "bold",
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByText("Bold Text")).toHaveStyle({
-      fontWeight: "bold",
-    });
+    const boldText = await canvas.findByText("Bold Text");
+    console.log(boldText.outerHTML); // Logs the HTML for the boldText element
+    expect(boldText).toHaveStyle("font-weight: 700");
   },
 };
 

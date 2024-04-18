@@ -37,10 +37,15 @@ export const Disabled: StoryObj<LabelProps> = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole("textbox"); // Assuming the role of the input is 'textbox'
-    await expect(input).toHaveAttribute("aria-disabled", "true");
+
+    // Wait for the textbox element to be available
+    const input = await canvas.findByRole("textbox");
+
+    // Assert that the textbox element has aria-disabled="true"
+    expect(input).toHaveAttribute("aria-disabled", "true");
   },
 };
+
 
 export const Error: StoryObj<LabelProps> = {
   args: {

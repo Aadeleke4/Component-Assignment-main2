@@ -14,13 +14,10 @@ select you variant (typescript)
 
 step 5
 it will prompt you to run 3 commands. 'cd what you named the directory' 'npm install' and 'npm run dev'
-*Run these codes separately to avoid any problems*
+_Run these codes separately to avoid any problems_
 
 step 6
 it will show
-➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-
-
-
+➜ Local: http://localhost:5173/
+➜ Network: use --host to expose
+➜ press h + enter to show help
