@@ -3,18 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
-    "test": "jest",
+    "dev": "vite --host",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build:main": "BUILD_TYPE='main' vite build",
+    "build:storybook": "BUILD_TYPE='storybook' storybook build",
+    "build": "concurrently -gs all -c 'bold.cyan,bold.magenta,bold.yellow,bold.green,bold.blue' npm:build:main npm:build:storybook",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "test-storybook": "storybook-test-runner",
-    "build-storybook": "storybook build",
-    "prepare": "husky install",
-    "pre-commit-tasks": "eslint 'src/**/*.{ts,tsx}' && prettier --check 'src/**/*.{ts,tsx,js,jsx}' && npm test",
-    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'"
+    "test:ts": "tsc",
+    "test:jest": "jest",
+    "test:storybook": "test-storybook",
+    "test": "concurrently -gs all -c 'bold.cyan,bold.magenta,bold.yellow,bold.green,bold.blue' 'npm:test:*(!ts)'",
+    "ci:test": "npm run storybook & sleep 30 && npm run test",
+    "cd": "BUILD_COMBINED='true' concurrently -gs all -c 'bold.cyan,bold.magenta,bold.yellow,bold.green,bold.blue' npm:build:main 'npm:build:storybook -- -o dist/storybook'"
   },
+  
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -51,6 +54,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-react": "^4.2.1",
     "babel-jest": "^29.7.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.29.1",
