@@ -1,16 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { LabelProps } from "./Label.types";
-import PropTypes from 'prop-types';
 
-
-const StyledLabel = styled.label<{ isError: boolean; disabled: boolean }>`
+const StyledLabel = styled.label<{ isError?: boolean; disabled?: boolean }>`
   display: block;
   margin: 0 0 4px;
   color: ${(props) => (props.isError ? "#FF0000" : "black")};
 `;
 
-const StyledInput = styled.input<{ isError: boolean; disabled: boolean }>`
+const StyledInput = styled.input<{ isError?: boolean; disabled?: boolean }>`
   display: block;
   width: 150px;
   padding: 8px;
@@ -22,6 +20,7 @@ const StyledInput = styled.input<{ isError: boolean; disabled: boolean }>`
   color: ${(props) => (props.disabled ? "#A8A8A8" : "black")};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "auto")};
 `;
+
 
 const ErrorMessage = styled.span`
   color: #FF0000;
@@ -36,12 +35,12 @@ export const Label: React.FC<LabelProps> = ({
 }) => {
   const isError = variants === "error";
 
+  // Ensure that StyledInput only receives valid HTML attributes and custom attributes it needs
   return (
-    <StyledLabel isError={isError} disabled={disabled}>
+    <StyledLabel disabled={disabled}>
       {label}
       <StyledInput
         type="text"
-        isError={isError}
         disabled={disabled}
         aria-disabled={disabled ? "true" : "false"}
         aria-invalid={isError ? "true" : "false"}
@@ -50,10 +49,5 @@ export const Label: React.FC<LabelProps> = ({
     </StyledLabel>
   );
 };
-Label.propTypes = {
-  label: PropTypes.string.isRequired,
-  variants: PropTypes.oneOf(['default', 'error']), // Reflect the same values as TypeScript definitions
-  errorMessage: PropTypes.string,
-  disabled: PropTypes.bool
-};
+
 export default Label;
