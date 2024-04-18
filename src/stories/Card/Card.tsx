@@ -13,8 +13,7 @@ const CardContainer = styled.div<CardContainerProps>`
   border: 1px solid #000;
   position: relative;
   overflow: hidden;
-  background-image: ${(props) =>
-    props.defaultImage ? `url(${props.defaultImage})` : "none"};
+  background-image: ${(props) => (props.defaultImage ? `url(${props.defaultImage})` : "none")};
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -37,7 +36,7 @@ const CardText = styled.div<CardTextProps>`
   width: 100%;
   height: auto;
   padding: 8px;
-  background-color: ${(props) => props.backgroundColor || "black"};
+  background-color: ${(props) => props.backgroundColor || "rgba(0, 0, 0, 0.7)"}; // Added a default semi-transparent black background
   color: white;
   text-align: center;
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
@@ -61,7 +60,7 @@ const Card: React.FC<CardProps> = ({
   <CardContainer
     defaultImage={defaultImage}
     disabled={disabled}
-    data-testid="card-container" // Make sure this is included
+    data-testid="card-container"
   >
     <CardText
       backgroundColor={backgroundColor}
