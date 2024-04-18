@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { LabelProps } from "./Label.types";
+import PropTypes from 'prop-types';
+
 
 const StyledLabel = styled.label<{ isError: boolean; disabled: boolean }>`
   display: block;
@@ -48,5 +50,10 @@ export const Label: React.FC<LabelProps> = ({
     </StyledLabel>
   );
 };
-
+Label.propTypes = {
+  label: PropTypes.string.isRequired,
+  variants: PropTypes.oneOf(['default', 'error']), // Reflect the same values as TypeScript definitions
+  errorMessage: PropTypes.string,
+  disabled: PropTypes.bool
+};
 export default Label;
